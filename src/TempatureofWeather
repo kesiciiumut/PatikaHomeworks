@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+
+public class TempatureofWeather {
+    public static void main(String[] args) {
+    double tempature ;
+    Scanner input = new Scanner(System.in);
+    System.out.println("please write tempature of weather : ");
+        tempature = input.nextDouble();
+        if ((tempature >= 5) && (tempature > 0) && (tempature <= 10)){
+            System.out.println("you can go to snowboard . Have fun :)");
+        } else if ((tempature > 10)  && (tempature <= 15)) {
+            System.out.println("you can go cinema with your girlfriend :)");
+
+        } else if ((tempature > 15) && (tempature < 20 )  ) {
+            System.out.println("you can go to picnic :)");
+
+        } else if ((tempature >= 20) && (tempature < 25 ) ) {
+            System.out.println("you can go to swimming :)");
+
+        }else{
+            System.out.println("STAY AT HOME !!! ");
+        }
+
+
+    }
+}
