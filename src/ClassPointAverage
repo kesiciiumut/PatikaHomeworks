@@ -1,0 +1,117 @@
+import java.util.Scanner;
+public class ClassPointAverage {
+    public static void main(String[] args) {
+        double mat , physic , chem , music , biology, average ;
+        Scanner input = new Scanner(System.in);
+        System.out.println("please write your matematic note:");
+        mat = input.nextDouble();
+
+
+
+        System.out.println("please write your physic note:");
+        physic = input.nextDouble();
+
+
+
+        System.out.println("please write your chemistry note:");
+        chem = input.nextDouble();
+
+
+
+        System.out.println("please write your music note:");
+        music = input.nextDouble();
+
+
+        System.out.println("please write your biology note:");
+        biology = input.nextDouble();
+
+
+        if (mat >= 55){
+            System.out.println("congratulations you passed matematic lesson ");
+
+        }else{
+            System.out.println("you did not pass mat lesson :(");
+
+        }
+        if ((mat >= 101) || (mat < 0 ) ) {
+            System.out.println("invalid note");
+
+        }
+
+
+
+
+
+        if (physic >= 55){
+            System.out.println("congratulations you passed physic lesson ");
+
+        }else{
+            System.out.println("you did not pass physic lesson :(");
+
+        }
+        if ((physic >= 101) || (physic < 0 ) ) {
+            System.out.println("invalid note");
+
+        }
+
+
+
+
+        if (chem >= 55){
+            System.out.println("congratulations you passed chemistry lesson ");
+
+        }else{
+            System.out.println("you did not pass chemistry lesson :(");
+
+        }
+        if ((chem >= 101) || (chem < 0 ) ) {
+            System.out.println("invalid note");
+
+        }
+
+
+
+
+
+        if (music >= 55){
+            System.out.println("congratulations you passed music lesson ");
+
+        }else{
+            System.out.println("you did not pass music lesson :(");
+
+        }
+        if ((music >= 101) || (music < 0 ) ) {
+            System.out.println("invalid note");
+
+        }
+
+
+
+
+        if (biology >= 55){
+            System.out.println("congratulations you passed biology lesson ");
+
+        }else{
+            System.out.println("you did not pass biology lesson :(");
+
+        }
+        if ((biology >= 101) || (biology < 0 ) ) {
+            System.out.println("invalid note");
+
+        }
+
+        average = (mat + physic + music + biology + chem)/5;
+        if (average >= 55){
+            System.out.println("congratulations you passed the class :)");
+        }else{
+            System.out.println("sorry :( you didn't pass the class");
+        }
+        System.out.println(average);
+
+
+
+
+
+
+    }
+}
