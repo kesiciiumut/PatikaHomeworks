@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class CostOfTicket {
+    public static void main(String[] args) {
+        double tip,yas,mesafe, tutar;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("lütfen gideceğiniz mesafiyi yazınız :");
+        mesafe = input.nextDouble();
+
+        System.out.println("eğer tek yön uçak bileti istiyorsanız lütfen 1 \nçift yön uçak bileti istiyorsanız ise 2 yazınız: ");
+        tip = input.nextDouble();
+
+        System.out.println("lütfen yaşınızı giriniz :");
+        yas = input.nextDouble();
+
+        tutar = mesafe * 0.10;
+
+        if ((tip == 1)){
+            System.out.println("tek yön biletlere indirim uygulanmamaktadır");
+
+        } else if ((tip==2)) {
+            tutar = mesafe * 0.08;
+
+
+        }else {
+            System.out.println("lütfen geçerli bir rakam giriniz !");
+        }
+        if ((yas<=12)){
+            tutar = mesafe * 0.05;
+            System.out.println("12 yaşından küçük olduğunuz için %50 indirim uygulanmıştır");
+            
+        } else if ((yas>12)  && (yas<=24)) {
+            tutar = mesafe * 0.09;
+            System.out.println("genç olduğunuz için %10 indirim uygulanmıştır");
+            
+        } else if (yas>=65) {
+            tutar = mesafe * 0.07;
+
+        }else {
+            System.out.println("yaş grubunuza ait bir indirim bulunmamaktadır:(");
+        }
+
+        System.out.println(tutar);
+
+        }
+
+    }
+
