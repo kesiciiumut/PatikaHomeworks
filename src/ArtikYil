@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class ArtikYil {
+    public static void main(String[] args) {
+        double yil, bolum100, bolum400, kalan;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("lütfen hesaplamak istediğiniz yılı giriniz :");
+        yil = input.nextDouble();
+
+        kalan = yil % 4;
+        bolum100 = yil % 100;
+        bolum400 = yil % 400;
+
+        if ((bolum100 == 0) && (bolum400 == 0)) {
+            System.out.println(yil + "  bir artık yıldır ");
+        } else if ((bolum100 != 0) || (bolum400 != 0)) {
+            System.out.println("girdiğiniz yıl bir artık yıl değildir");
+        }else if (kalan==0){
+            System.out.println(yil + "  bir artık yıldır ");
+        }else {
+            System.out.println("girdiğiniz yıl bir artık yıl değildir");
+
+        }
+
+
+    }
+    }
+
+
+
+
+
+
