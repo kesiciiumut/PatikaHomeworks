@@ -1,0 +1,136 @@
+import  java.util.Scanner;
+public class BurcBulucu {
+    public static void main(String[] args) {
+        double ay , gun;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("lütfen doğduğunuz ayı giriniz :");
+        ay = input.nextDouble();
+
+        System.out.println("lütfen doğduğunuz günü giriniz :");
+        gun = input.nextDouble();
+
+        if ((ay == 1)){
+            if ((gun >0) && (gun<22)){
+                System.out.println("burcunuz : Oğlak ");
+            } else if ((gun>=22)&&(gun<=31)) {
+                System.out.println("burcunuz : kova");
+
+            }
+        }
+
+        if ((ay == 2)){
+            if ((gun >0) && (gun<19)){
+                System.out.println("burcunuz : kova ");
+            } else if ((gun>=19)&&(gun<=29)) {
+                System.out.println("burcunuz : balık");
+
+            }
+        }
+
+        if ((ay == 3)){
+            if ((gun >0) && (gun<20)){
+                System.out.println("burcunuz : Balık ");
+            } else if ((gun>=20)&&(gun<=31)) {
+                System.out.println("burcunuz : Koç");
+
+            }
+        }
+
+        if ((ay == 4)){
+            if ((gun >0) && (gun<20)){
+                System.out.println("burcunuz : Koç ");
+            } else if ((gun>=20)&&(gun<=31)) {
+                System.out.println("burcunuz : Boğa");
+
+            }
+        }
+
+        if ((ay == 5)){
+            if ((gun >0) && (gun<21)){
+                System.out.println("burcunuz : Boğa ");
+            } else if ((gun>=21)&&(gun<=31)) {
+                System.out.println("burcunuz : İkizler");
+
+            }
+        }
+        if ((ay == 6)){
+            if ((gun >0) && (gun<22)){
+                System.out.println("burcunuz : İkizler ");
+            } else if ((gun>=22)&&(gun<=31)) {
+                System.out.println("burcunuz : Yengeç");
+
+            }
+        }
+        if ((ay == 7)){
+            if ((gun >0) && (gun<22)){
+                System.out.println("burcunuz : Yengeç ");
+            } else if ((gun>=22)&&(gun<=31)) {
+                System.out.println("burcunuz : Aslan");
+
+            }
+        }
+
+        if ((ay == 8)){
+            if ((gun >0) && (gun<22)){
+                System.out.println("burcunuz : Aslan ");
+            } else if ((gun>=22)&&(gun<=31)) {
+                System.out.println("burcunuz : Başak ");
+
+
+            }
+        }
+        if ((ay == 9)){
+            if ((gun >0) && (gun<22)){
+                System.out.println("burcunuz : Başak ");
+            } else if ((gun>=22)&&(gun<=31)) {
+                System.out.println("burcunuz : Terazi");
+
+            }
+        }
+        if ((ay == 10)){
+            if ((gun >0) && (gun<22)){
+                System.out.println("burcunuz : Terazi ");
+            } else if ((gun>=22)&&(gun<=31)) {
+                System.out.println("burcunuz : Akrep");
+
+            }
+        }
+
+        if ((ay == 11)){
+            if ((gun >0) && (gun<21)){
+                System.out.println("burcunuz : Akrep ");
+            } else if ((gun>=21)&&(gun<=31)) {
+                System.out.println("burcunuz : Yay");
+
+            }
+        }
+
+        if ((ay == 12)){
+            if ((gun >0) && (gun<21)){
+                System.out.println("burcunuz : Yay ");
+            } else if ((gun>=21)&&(gun<=31)) {
+                System.out.println("burcunuz : Oğlak");
+
+            }
+        }
+        if (ay>=13){
+            System.out.println("geçersiz ay lütfen tekrar deneyiniz!!!");
+        }
+
+        if (gun>=32){
+            System.out.println("geçersiz gün lütfen tekrar deneyiniz!!!");
+        }
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
