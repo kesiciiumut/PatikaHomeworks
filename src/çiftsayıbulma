@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class CiftSayiBulma {
+    public static void main(String[] args) {
+        int deger;
+        Scanner inp= new Scanner(System.in);
+        System.out.println("please enter your number");
+        deger = inp.nextInt();
+        for (int i =0;i<=deger;i++  ){
+            if (i % 2==0){
+                System.out.println(i);
+            }
+        }
+    }
+}
