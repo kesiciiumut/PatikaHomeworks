@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class desen {
+static void desen(){
+    Scanner input = new Scanner(System.in);
+    System.out.print("sayıyı giriniz:");
+    int sayi = input.nextInt();
+    System.out.println("sayı:"+sayi);
+    for(int i=1;i<=5;i++){
+
+
+        System.out.print((sayi-=5)+"   ");
+    } for(int i=1;i<=4;i++){
+
+
+        System.out.print((sayi+=5)+"   ");
+
+
+
+}}
+public static void main(String[]args){
+    desen();
+}
+
+
+}
