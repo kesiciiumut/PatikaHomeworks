@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class üs {
+    static void power(){
+     Scanner input = new Scanner(System.in);
+     int alt, üst,sonuç=1;
+        System.out.println("lütfen hesaplamak istediğiniz değerin alt değerini giriniz:");
+        alt= input.nextInt();
+        System.out.println("lütfen hesaplamak istediğiniz değerin üs değerinizi giriniz :");
+        üst =input.nextInt();
+        for(int i=1 ;üst>=i;i++){
+            sonuç*=alt;
+        }
+
+        System.out.println("işlemin sonucu:"+ sonuç);
+    }
+    public static void main(String[]args){
+        power();
+    }
+
+
+}
