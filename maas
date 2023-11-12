@@ -1,0 +1,76 @@
+public class employee {
+String name;
+int salary;
+int workHours;
+int hireyear;
+double toplammaas;
+
+
+employee(String name, String salary, String workHours, String hireyear){
+    this.name=name;
+    this.hireyear= Integer.parseInt(hireyear);
+    this.salary= Integer.parseInt(salary);
+    this.workHours= Integer.parseInt(workHours);
+}
+  public double  tax(){
+    if(this.salary>=1000){
+        double vergi = this.salary * 0.03;
+        System.out.println("ödediğiniz vergi :"+vergi);
+        return vergi;
+
+    }else {
+        System.out.println("vergi dilimine girmemektesiniz");
+    }
+    return 0;
+
+        }
+
+        public double  bonus(){
+    if(this.workHours>=40){
+        int bonusHours=this.workHours-40;
+        int bonus=bonusHours*30;
+        System.out.println("bonus ücretiniz "+bonus);
+        return bonus;
+
+
+    }else {
+        System.out.println("bonus almaya hak kazanamadınız");
+    }
+    return 0;
+        }
+        public double raiseSalary(){
+    int calismayili=2021-this.hireyear;
+    if (calismayili<=10){
+        double zamTutari=this.salary*0.05;
+        System.out.println("almaya hak kazanığınız zam tutarı :"+zamTutari);
+        return zamTutari;
+    } else if ((calismayili>=9)&&(calismayili<=20)){
+        double zamTutari=this.salary*0.1;
+        System.out.println("almaya hak kazandığınız zam tutarı :"+zamTutari);
+        return zamTutari;
+
+        
+    }else{
+        double zamTutari=this.salary*0.15;
+        System.out.println("almaya hak kazandığınız zam tutari"+zamTutari);
+        return zamTutari;
+
+    }
+
+
+        }
+   public void yazdir(){
+    this.toplammaas=this.salary-(tax())+(bonus())+(raiseSalary());
+        System.out.println(this.name);
+        System.out.println(this.salary);
+        System.out.println(this.workHours);
+        System.out.println(this.hireyear);
+        System.out.println(this.toplammaas);
+    }
+
+
+    }
+
+
+
+
