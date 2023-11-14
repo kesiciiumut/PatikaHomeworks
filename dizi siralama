@@ -1,0 +1,31 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.println("dizideki eleman sayısını giriniz n:");
+        int boyut = input.nextInt();
+       int[] array=new int[boyut];
+       int count=0;
+        for(int i =0;i < boyut;i++){
+            System.out.println((i+1)+". elemanı giriniz :");
+            int eleman = input.nextInt();
+            array[count++]=eleman;
+
+        }
+        System.out.println("Yeni dizimiz \t: " + Arrays.toString(array));
+        Arrays.sort(array);
+        System.out.println("küçükten büyüğe sıralanmış hali :");
+        for(int j =0;j<array.length;j++){
+            System.out.println(array[j]+" ");
+        }
+
+
+
+
+
+
+
+
+    }
+}
