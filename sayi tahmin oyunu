@@ -1,0 +1,83 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int number = (int)(Math.random()*100);
+        int right=0;
+        int selected;
+        boolean isWin = false;
+        
+
+       while(right<5){
+           System.out.println("tahmin ettiğiniz sayıyı giriniz :");
+           selected = input.nextInt();
+           if ((selected>100)||(selected<0)){
+               System.out.println("girmiş olduğunuz değer aralığın dışındadır");
+               System.out.println("lütfen tekrar deneyiniz!!!!!!");
+           }
+
+           if (selected==number ){
+               System.out.println("tebrikler oyunu kazandınız!!!");
+               isWin = true;
+               break;
+
+           }else {
+
+               if (selected<number){
+                   System.out.println("seçmiş olduğunuz sayı gizli sayıdan küçüktür");
+
+               }else {
+                   System.out.println("seçmiş olduğunuz sayı gizli sayıdan büyüktür");
+               }
+            }right++;
+           System.out.println("kalan hakkınız "+(5-right));
+
+       }
+
+
+
+
+
+    }
+}import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int number = (int)(Math.random()*100);
+        int right=0;
+        int selected;
+        boolean isWin = false;
+        
+
+       while(right<5){
+           System.out.println("tahmin ettiğiniz sayıyı giriniz :");
+           selected = input.nextInt();
+           if ((selected>100)||(selected<0)){
+               System.out.println("girmiş olduğunuz değer aralığın dışındadır");
+               System.out.println("lütfen tekrar deneyiniz!!!!!!");
+           }
+
+           if (selected==number ){
+               System.out.println("tebrikler oyunu kazandınız!!!");
+               isWin = true;
+               break;
+
+           }else {
+
+               if (selected<number){
+                   System.out.println("seçmiş olduğunuz sayı gizli sayıdan küçüktür");
+
+               }else {
+                   System.out.println("seçmiş olduğunuz sayı gizli sayıdan büyüktür");
+               }
+            }right++;
+           System.out.println("kalan hakkınız "+(5-right));
+
+       }
+
+
+
+
+
+    }
+}
