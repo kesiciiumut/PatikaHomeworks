@@ -1,0 +1,130 @@
+use std::collections::{HashMap, HashSet};
+use std::time::{Duration, SystemTime};
+
+// Blockchain için basit bir struct
+#[derive(Debug)]
+struct Blockchain {
+    users_tokens: HashMap<String, u32>,
+}
+
+impl Blockchain {
+    fn new() -> Blockchain {
+        Blockchain {
+            users_tokens: HashMap::new(),
+        }
+    }
+
+    fn transfer_tokens(&mut self, sender: &str, recipient: &str, amount: u32) -> Result<(), &'static str> {
+        if let Some(sender_balance) = self.users_tokens.get_mut(sender) {
+            if *sender_balance >= amount {
+                *sender_balance -= amount;
+                *self.users_tokens.entry(recipient.to_string()).or_insert(0) += amount;
+                Ok(())
+            } else {
+                Err("Insufficient funds.")
+            }
+        } else {
+            Err("Sender not found.")
+        }
+    }
+}
+
+// Sosyal medya uygulaması için basit bir struct
+#[derive(Debug)]
+struct UserProfile {
+    username: String,
+    full_name: String,
+    email: String,
+    active: bool,
+    last_activity: SystemTime,
+}
+
+struct SocialMediaApp {
+    user_profiles: HashMap<String, UserProfile>,
+    blockchain: Blockchain,
+}
+
+impl SocialMediaApp {
+    fn new() -> SocialMediaApp {
+        SocialMediaApp {
+            user_profiles: HashMap::new(),
+            blockchain: Blockchain::new(),
+        }
+    }
+
+    fn create_profile(&mut self, username: &str, full_name: &str, email: &str) {
+        let user_profile = UserProfile {
+            username: username.to_string(),
+            full_name: full_name.to_string(),
+            email: email.to_string(),
+            active: true,
+            last_activity: SystemTime::now(),
+        };
+        self.user_profiles.insert(username.to_string(), user_profile);
+        self.blockchain.users_tokens.insert(username.to_string(), 100); // Başlangıçta 100 token
+    }
+
+    fn deactivate_profile(&mut self, username: &str) -> Result<(), &'static str> {
+        if let Some(profile) = self.user_profiles.get_mut(username) {
+            profile.active = false;
+            Ok(())
+        } else {
+            Err("User not found.")
+        }
+    }
+
+    fn check_daily_activity(&mut self) {
+        let current_time = SystemTime::now();
+        let one_day = Duration::from_secs(86400); // 1 gün
+
+        for (_, profile) in &mut self.user_profiles {
+            if profile.active && current_time.duration_since(profile.last_activity).unwrap() < one_day {
+                // Kullanıcı bir gün içinde en az bir kez aktifti
+                self.blockchain.users_tokens.entry(profile.username.clone()).or_insert(0);
+                self.blockchain.users_tokens
+                    .entry(profile.username.clone())
+                    .and_modify(|e| *e += 1); // Her gün 1 token
+            }
+        }
+    }
+
+    fn list_profiles(&self) {
+        for (_, profile) in &self.user_profiles {
+            println!(
+                "Username: {}, Full Name: {}, Email: {}, Active: {}, Tokens: {}",
+                profile.username, profile.full_name, profile.email, profile.active, self.blockchain.users_tokens[&profile.username]
+            );
+        }
+    }
+}
+
+fn main() {
+    let mut social_media_app = SocialMediaApp::new();
+
+    // Kullanıcı profillerini oluşturun
+    social_media_app.create_profile("john_doe", "John Doe", "john.doe@example.com");
+    social_media_app.create_profile("jane_smith", "Jane Smith", "jane.smith@example.com");
+
+    // Her gün etkinlik kontrolü yaparak token ver
+    for _ in 0..30 {
+        social_media_app.check_daily_activity();
+    }
+
+    // Kullanıcı profillerini listele
+    println!("User Profiles after Daily Activity Check:");
+    social_media_app.list_profiles();
+
+    // Bir kullanıcıyı devre dışı bırak
+    social_media_app.deactivate_profile("john_doe").unwrap();
+
+    // Kullanıcı profillerini güncelle ve listele
+    println!("\nUpdated User Profiles after Deactivation:");
+    social_media_app.list_profiles();
+
+    // Token transferi örneği
+    let transfer_result = social_media_app.blockchain.transfer_tokens("jane_smith", "john_doe", 5);
+    match transfer_result {
+        Ok(()) => println!("Token transfer successful."),
+        Err(err) => println!("Token transfer failed: {}", err),
+    }
+}
